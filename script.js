@@ -119,8 +119,7 @@ async function loginWithKey() {
   const inputKey = document.getElementById('navKey').value.trim();
 
   try {
-    const response = await fetch('https://raw.githubusercontent.com/KingAldy/VoxCrash/main/key.json
-');
+    const response = await fetch('https://raw.githubusercontent.com/KingAldy/VoxCrash/main/key.json');
     const data = await response.json();
 
     const found = data.keys.find(item => item.key === inputKey);
