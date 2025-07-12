@@ -6,6 +6,86 @@
   <title>SystemCrasher Panel</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at center, #1a0000, #0a0000);
+      color: white;
+    }
+
+    nav {
+      background: #1a0000;
+      padding: 20px;
+      color: #ff2e2e;
+      font-size: 24px;
+      font-weight: bold;
+      border-bottom: 2px solid #ff2e2e;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 60px auto;
+      background: #1a0000;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #ff2e2e70;
+    }
+
+    .container h1,
+    .container h3 {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    button {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    input,
+    select {
+      background: #0a0000;
+      color: white;
+      border: 1px solid #444;
+    }
+
+    input::placeholder {
+      color: #999;
+    }
+
+    button {
+      background: linear-gradient(to right, #ff2e2e, #cc0000);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #cc0000, #ff2e2e);
+    }
+
+    .note {
+      margin-top: 20px;
+      padding: 15px;
+      background: #330000;
+      border-left: 4px solid #ff2e2e;
+      font-size: 14px;
+      border-radius: 6px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body onload="autoLogin()">
   <nav><h2>SystemCrasher</h2></nav>
@@ -48,9 +128,7 @@
 
     <div id="keySection" class="hidden">
       <h3>Tambah KEY Login</h3>
-
       <input type="text" id="keyUsername" placeholder="Nama Pengguna untuk KEY" />
-
       <button onclick="generateKeyOnly()">Buat KEY Baru</button>
       <p id="generatedKey" style="margin-top:10px;"></p>
       <button onclick="logout()" style="margin-top:10px; background:#444;">Logout</button>
