@@ -1,5 +1,6 @@
 {
   "keys": [
-    "USER-USER", "username": "user free"
+    { "key": "KEY-ABC12345", "username": "aldy" },
+    { "key": "KEY-GACOR99", "username": "senja" }
   ]
 }
