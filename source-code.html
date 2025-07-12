@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SystemCrasher Panel</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body onload="autoLogin()">
+  <nav><h2>SystemCrasher</h2></nav>
+
+  <div class="container" id="loginBox">
+    <h1>Login</h1>
+    <input type="text" id="navUser" placeholder="Username"/>
+    <input type="password" id="navPass" placeholder="Password"/>
+    <select id="loginLevel">
+      <option value="developer">Developer</option>
+      <option value="admin">Admin</option>
+      <option value="reseller">Reseller</option>
+    </select>
+    <button onclick="login('navUser','navPass')">Login</button>
+    <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ff2e2e;">
+    <input type="text" id="navKey" placeholder="Masukkan KEY"/>
+    <button onclick="loginWithKey()">Login dengan KEY</button>
+    <div class="note">
+      <strong>Keterangan Login:</strong><br/>
+      🔐 <strong>Developer</strong>: login hanya dengan username: <code>developer</code><br/>
+      👑 <strong>Admin</strong>: dibuat oleh Developer<br/>
+      💼 <strong>Reseller</strong>: dibuat oleh Admin<br/>
+      🔑 <strong>User</strong>: login dengan KEY dari Reseller<br/>
+    </div>
+  </div>
+
+  <div class="container hidden" id="panelBox">
+    <h1>Panel</h1>
+    <div id="userStatus"></div>
+
+    <div id="createSection" class="hidden">
+      <h3>Buat Akun</h3>
+      <input type="text" id="newUser" placeholder="Username Baru"/>
+      <input type="password" id="newPass" placeholder="Password Baru"/>
+      <input type="number" id="newExp" placeholder="Durasi Aktif (hari)"/>
+      <select id="newLevel"></select>
+      <button onclick="createAccount()">Buat</button>
+      <button onclick="logout()" style="margin-top:10px; background:#444;">Logout</button>
+    </div>
+
+    <div id="keySection" class="hidden">
+      <h3>Tambah KEY Login</h3>
+
+      <input type="text" id="keyUsername" placeholder="Nama Pengguna untuk KEY" />
+
+      <button onclick="generateKeyOnly()">Buat KEY Baru</button>
+      <p id="generatedKey" style="margin-top:10px;"></p>
+      <button onclick="logout()" style="margin-top:10px; background:#444;">Logout</button>
+    </div>
+
+    <div id="bugSection" class="hidden">
+      <h3>Menu Kirim Bug</h3>
+      <select id="bugType">
+        <option value="crashtotal">Crash Total</option>
+        <option value="delay">Delay Brutal</option>
+        <option value="freeze">Freeze Maksimal</option>
+      </select>
+      <input type="text" id="targetWa" placeholder="Nomor WhatsApp (628xxx)" />
+      <button onclick="sendBug()">Kirim Bug</button>
+      <button onclick="logout()" style="margin-top:10px; background:#444;">Logout</button>
+    </div>
+
+    <div id="accountList"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
